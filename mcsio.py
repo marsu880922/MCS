@@ -56,9 +56,14 @@ while True:
 	if( SwitchStatus == 0):
 		print('Button pressed')
 	else:
-		print('Button released')
-	payload = payload = {"datapoints":[{"dataChnId":"Humidity","values":{"value":h0}},{"dataChnId":"Temperature","values":{"value":t0}},{"dataChnId":"SwitchStatus","values":{"values":SwitchStatus}}]} 
-	post_to_mcs(payload)
+		if h0 is not None and t0 is not None:
+			print('Button released')
+			payload = payload = {"datapoints":[{"dataChnId":"Humidity","values":{"value":h0}},{"dataChnId":"Temperature","values":{"value":t0}},{"dataChnId":"SwitchStatus","values":{"values":SwitchStatus}}]} 
+			post_to_mcs(payload)
+			time.sleep(10)
+		else:
+			print('Failed to get reading. Try again!')
+			sys.exit(1)
 	
 	
 	
