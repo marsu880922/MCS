@@ -51,7 +51,7 @@ else:
     sys.exit(1)
 	
 while True:
-	humidity,temperature = Adafruit_DHT.read_retry(sensor,pin)
+	h0,t0 = Adafruit_DHT.read_retry(sensor,pin)
 	SwitchStatus = GPIO.input(24)
 	if( SwitchStatus == 0):
 		print('Button pressed')
