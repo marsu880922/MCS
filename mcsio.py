@@ -57,7 +57,8 @@ while True:
 		print('Button pressed')
 	else:
 		print('Button released')
-	payload = {"datapoints":[{"dataChnId":"Hum","values":{"value":humidity}}
-		,{"dataChnId":"Temp","values":{"value":temperature}}
-		,{"dataChnId":"SwitchStatus","values":{"values":SwitchStatus}}]}
+	payload = payload = {"datapoints":[{"dataChnId":"Humidity","values":{"value":h0}},{"dataChnId":"Temperature","values":{"value":t0}},{"dataChnId":"SwitchStatus","values":{"values":SwitchStatus}}]} 
 	post_to_mcs(payload)
+	
+	
+	
