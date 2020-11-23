@@ -58,7 +58,7 @@ while True:
 	else:
 		if h0 is not None and t0 is not None:
 			print('Button released')
-			payload = payload = {"datapoints":[{"dataChnId":"Humidity","values":{"value":h0}},{"dataChnId":"Temperature","values":{"value":t0}},{"dataChnId":"SwitchStatus","values":{"values":SwitchStatus}}]} 
+			payload = {"datapoints":[{"dataChnId":"Humidity","values":{"value":h0}},{"dataChnId":"Temperature","values":{"value":t0}},{"dataChnId":"SwitchStatus","values":{"values":SwitchStatus}}]} 
 			post_to_mcs(payload)
 			time.sleep(10)
 		else:
