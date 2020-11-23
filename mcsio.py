@@ -53,7 +53,7 @@ else:
 while True:
 	h0,t0 = Adafruit_DHT.read_retry(sensor,pin)
 	SwitchStatus = GPIO.input(24)
-	if( SwitchStatus == 0):
+	if( SwitchStatus == 1):
 		print('Button pressed')
 	else:
 		if h0 is not None and t0 is not None:
