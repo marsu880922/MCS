@@ -28,7 +28,7 @@ import time
 import Adafruit_DHT
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 deviceId = 'DVDsquZx'
 deviceKey = '4v9qgv9fXNUYKudK' 
 
@@ -84,7 +84,7 @@ while(1):
 	h0,t0 = Adafruit_DHT.read_retry(sensor,pin)
 	SwitchStatus = GPIO.input(24)
 
-	if(SwitchStatus == 1):
+	if(SwitchStatus == 0):
 		print('Button released')
 		payload = {"datapoints":[{"dataChnId":"SwitchStatus","values":{"value":SwitchStatus}}]} 
 		post_to_mcs(payload)
