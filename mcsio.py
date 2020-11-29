@@ -82,7 +82,8 @@ else:
     sys.exit(1)
 while(1):
 	h0,t0 = Adafruit_DHT.read_retry(sensor,pin)
-	SwitchStatus = GPIO.input(24)
+	#SwitchStatus = GPIO.input(24)
+	SwitchStatus = 0
 	if(SwitchStatus == 1):
 		if h0 is not None and t0 is not None:
 			print('Temp={0:0.1f}* Humidity={1:0.1f}%'.format(t0,h0))
