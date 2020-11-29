@@ -83,15 +83,17 @@ else:
 while(1):
 	h0,t0 = Adafruit_DHT.read_retry(sensor,pin)
 	SwitchStatus = GPIO.input(24)
-	if h0 is not None and t0 is not None:
-		print('Temp={0:0.1f}* Humidity={1:0.1f}%'.format(t0,h0))
-		payload = {"datapoints":[{"dataChnId":"Humidity","values":{"value":h0}},{"dataChnId":"Temperature","values":{"value":t0}},{"dataChnId":"SwitchStatus","values":{"value":SwitchStatus}}]} 
+	if(SwitchStatus == 1):
+		if h0 is not None and t0 is not None:
+			print('Temp={0:0.1f}* Humidity={1:0.1f}%'.format(t0,h0))
+			payload = {"datapoints":[{"dataChnId":"Humidity","values":{"value":h0}},{"dataChnId":"Temperature","values":{"value":t0}},{"dataChnId":"SwitchStatus","values":{"value":SwitchStatus}}]} 
+			post_to_mcs(payload)
+			time.sleep(10)
+		else:
+			print('Failed to get reading. Try again!')
+			sys.exit(1)
+	else:
+		print('Button released')
+		payload = {"datapoints":[{"dataChnId":"SwitchStatus","values":{"value":SwitchStatus}}]} 
 		post_to_mcs(payload)
 		time.sleep(10)
-		if( SwitchStatus == 0):
-			print('Button pressed')
-		else:
-			print('Button released')
-	else:
-		print('Failed to get reading. Try again!')
-		sys.exit(1)
