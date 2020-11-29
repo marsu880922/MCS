@@ -84,7 +84,7 @@ while(1):
 	h0,t0 = Adafruit_DHT.read_retry(sensor,pin)
 	SwitchStatus = GPIO.input(24)
 
-	if(SwitchStatus == 0):
+	if(SwitchStatus == 1):
 		print('Button released')
 		payload = {"datapoints":[{"dataChnId":"SwitchStatus","values":{"value":SwitchStatus}}]} 
 		post_to_mcs(payload)
