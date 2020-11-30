@@ -6,7 +6,7 @@ import logging
 import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(22, GPIO.OUT)
+GPIO.setup(13, GPIO.OUT)
 # change this to the values from MCS web console
 DEVICE_INFO = {
     'device_id' : 'DVDsquZx',
@@ -65,7 +65,7 @@ def waitAndExecuteCommand(commandChannel):
 
 def setupLED():
 	GPIO.setmode(GPIO.BCM)
-	GPIO.setup(22, GPIO.OUT)
+	GPIO.setup(13, GPIO.OUT)
 	
     
 
@@ -74,11 +74,11 @@ def setLED(state):
     # So we reverse it here.
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
-    GPIO.setup(22, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
     if state:
-        GPIO.output(22,1)
+        GPIO.output(13,1)
     else:
-        GPIO.output(22,0)
+        GPIO.output(13,0)
 
 if __name__ == '__main__':
     setupLED()
