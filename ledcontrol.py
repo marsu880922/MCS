@@ -6,8 +6,8 @@ import mraa
 
 # change this to the values from MCS web console
 DEVICE_INFO = {
-    'device_id' : 'YOUR_DEVICE_ID',
-    'device_key' : 'YOUR_DEVICE_KEY'
+    'device_id' : 'D9GmesF9',
+    'device_key' : 'TWaCw2e4Plm7D2T8'
 }
 
 # change 'INFO' to 'WARNING' to filter info messages
