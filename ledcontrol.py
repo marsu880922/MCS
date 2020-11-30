@@ -57,7 +57,7 @@ def waitAndExecuteCommand(commandChannel):
 
         if len(fields) > 1:
             timeStamp, dataChannelId, commandString = fields
-            if dataChannelId == 'LEDcontrol':
+            if dataChannelId == 'LED_Control':
                 # check the value - it's either 0 or 1
                 commandValue = int(commandString)
                 logging.info("led :%d" % commandValue)
