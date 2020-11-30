@@ -9,8 +9,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(22, GPIO.OUT)
 # change this to the values from MCS web console
 DEVICE_INFO = {
-    'device_id' : 'D9GmesF9',
-    'device_key' : 'TWaCw2e4Plm7D2T8'
+    'device_id' : 'DVDsquZx',
+    'device_key' : '4v9qgv9fXNUYKudK'
 }
 
 # change 'INFO' to 'WARNING' to filter info messages
@@ -57,7 +57,7 @@ def waitAndExecuteCommand(commandChannel):
 
         if len(fields) > 1:
             timeStamp, dataChannelId, commandString = fields
-            if dataChannelId == 'LED Control':
+            if dataChannelId == 'ledcontrol':
                 # check the value - it's either 0 or 1
                 commandValue = int(commandString)
                 logging.info("led :%d" % commandValue)
